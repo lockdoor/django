@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    
-</body>
-</html>>
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>ชื่อบทความ : {{name}}</h2>
+    <p>ชื่อผู้แต่ง : {{author}}</p>
+    <p>ราคา : {{price}}</p>
+    <ol><h3>ป้ายกำกับ</h3>
+    {% for tag in tags %}
+        <li>{{tag}}</li>   
+    {% endfor %}
+    </ol>
+    <h3>ความนิยม</h3>
+    {% if rating < 3 %}
+        <p>ความนิยมต่ำ</p>
+    {% elif rating == 3 %}
+        <p>ความนิยมปานกลาง</p>
+    {% else %}
+        <p>ความนิยมสูง</p>
+    {% endif %}
+{% endblock %}
