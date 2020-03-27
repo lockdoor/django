@@ -24,4 +24,6 @@ urlpatterns = [
     path('', blogs_views.north),
     path('north', blogs_views.north),
     path('central', blogs_views.central),
+    path('writeblog', blogs_views.writeblog),
+    path('addblog', blogs_views.addblog),    
 ]

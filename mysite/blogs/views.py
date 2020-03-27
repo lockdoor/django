@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
 tags = ['น้ำตก', 'น้ำพุร้อน', 'ธรรมชาติ', 'หน้าฝน', 'ตากหมอก']
@@ -22,3 +23,19 @@ def north(request):
 
 def central(request):
     return render(request, "index.html", obj2)
+
+def writeblog(request):
+    return render(request, "writeblog.html")
+
+def addblog(request):
+    
+    name = request.POST['name']
+    description = request.POST['description']
+    
+    obj = {
+        'name' : name,
+        'description' : description
+    }
+    return render(request, "result.html", obj)
+    
+    
