@@ -1,28 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+#from django.http import HttpResponse
+from .models import Post
 
 # Create your views here.
-tags = ['น้ำตก', 'น้ำพุร้อน', 'ธรรมชาติ', 'หน้าฝน', 'ตากหมอก']
-obj1 = {
-    'name' : 'บทความท่องเที่ยวภาคเหนือ',
-    'author' : 'lockdoor',
-    'price' : 100,
-    'tags' : tags,
-    'rating' : 4
-}
-obj2 = {
-    'name' : 'บทความท่องเที่ยวภาคกลาง',
-    'author' : 'lockdoor',
-    'price' : 100,
-    'tags' : tags,
-    'rating' : 4
-}
 
-def north(request):
-    return render(request, "index.html", obj1)
-
-def central(request):
-    return render(request, "index.html", obj2)
+def home(request):
+    datas = Post.objects.all()
+    return render(request, "index.html", {'datas':datas})
 
 def writeblog(request):
     return render(request, "writeblog.html")

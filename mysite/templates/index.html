@@ -1,20 +1,22 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h2>ชื่อบทความ : {{name}}</h2>
-    <p>ชื่อผู้แต่ง : {{author}}</p>
-    <p>ราคา : {{price}}</p>
-    <ol><h3>ป้ายกำกับ</h3>
-    {% for tag in tags %}
-        <li>{{tag}}</li>   
-    {% endfor %}
-    </ol>
-    <h3>ความนิยม</h3>
-    {% if rating < 3 %}
-        <p>ความนิยมต่ำ</p>
-    {% elif rating == 3 %}
-        <p>ความนิยมปานกลาง</p>
-    {% else %}
-        <p>ความนิยมสูง</p>
-    {% endif %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ลำดับที่</th>
+        <th scope="col">ชื่อเรื่อง</th>
+        <th scope="col">คำอธิบาย</th>        
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in datas %}
+      <tr>
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.name}}</td>
+        <td>{{data.desc}}</td>                        
+      </tr>  
+      {% endfor %}    
+    </tbody>
+  </table>
 {% endblock %}

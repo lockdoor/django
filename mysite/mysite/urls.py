@@ -21,9 +21,8 @@ from blogs import views as blogs_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', polls_views.index),
-    path('', blogs_views.north),
-    path('north', blogs_views.north),
-    path('central', blogs_views.central),
+    path('', blogs_views.home),
+    path('home', blogs_views.home),    
     path('writeblog', blogs_views.writeblog),
     path('addblog', blogs_views.addblog),    
 ]
