@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="text-center">สมัครสมาชิกใหม่</h1>
+
+{% if message == 'success'%}
+<div class="alert alert-success" role="alert">
+    {{message}}
+</div>
+{% elif message %}
+<div class="alert alert-danger" role="alert">
+    {{message}}
+</div>
+{% endif %}
+
+<form action="addNewMember" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">username</label>
+        <input type="text" class="form-control" name="username" id="username">
+    </div>
+    <div class="form-group">
+        <label for="description">email</label>
+        <input type="email" class="form-control" name="email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="description">password</label>
+        <input type="password" class="form-control" name="password" id="password">
+    </div>
+    <div class="form-group">
+        <label for="description">repassword</label>
+        <input type="password" class="form-control" name="repassword" id="repassword">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+</form>
+
+<br>
+<hr><br>
+
+
+{% endblock %}

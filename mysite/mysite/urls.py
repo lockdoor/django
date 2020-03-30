@@ -23,6 +23,9 @@ urlpatterns = [
     path('polls/', polls_views.index),
     path('', blogs_views.home),
     path('home', blogs_views.home),    
-    path('writeblog', blogs_views.writeblog),
-    path('addblog', blogs_views.addblog),    
+    path('writeBlogForm', blogs_views.writeBlogForm),
+    path('addblog', blogs_views.addblog),
+    path('newMemberForm', blogs_views.newMemberForm),
+    path('addNewMember', blogs_views.addNewMember),
+    path('loginForm', blogs_views.loginForm),
 ]

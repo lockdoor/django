@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="text-center">ลงชื่อเข้าใช้</h1>
+
+<form action="login" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">username</label>
+        <input type="text" class="form-control" name="username" id="username">
+    </div>
+    
+    <div class="form-group">
+        <label for="description">password</label>
+        <input type="password" class="form-control" name="password" id="password">
+    </div>
+    
+    <div>
+        <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+</form>
+
+<br>
+<hr><br>
+
+
+{% endblock %}
