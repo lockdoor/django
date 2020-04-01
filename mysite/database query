@@ -1,0 +1,19 @@
+django query
+
+#from polls.models
+
+
+#method ต่าง ๆ ในการ query
+#save()
+#ใช้ในการเก็บข้อมูล object ลงในฐานข้อมูล
+#object q สร้างขึ้นมาโดย class Question
+q = Question(question_text="Pitsanu", pub_date=timezone.now())
+q.save()
+
+#create()
+#ใช้ในการสร้าง object และบันทึกลงฐานข้อมูลพร้อมกันในบรรทัดเดียว
+q = Question.object.create(question_text="Pitsanu", pub_date=timezone.now())
+
+#get(arg) #pk=?(primary key)
+#ใช้ในการได้รับข้อมูลโดยการเลือก primary key
+q = Question.objects.get(pk=1)
