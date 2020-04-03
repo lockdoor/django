@@ -7,20 +7,20 @@ from django.contrib.auth.models import User
 
 def home(request):
     datas = Post.objects.all()
-    return render(request, "index.html", {'datas':datas})
+    return render(request, "blogs/index.html", {'datas':datas})
 
 def writeBlogForm(request):
-    return render(request, "writeBlogFrom.html")
+    return render(request, "blogs/writeBlogFrom.html")
 
 def addblog(request):
     name = request.POST['name']
     desc = request.POST['description']
     blog = Post(name = name, desc = desc)
     blog.save()
-    return render(request, "result.html", {'message':'success'})
+    return render(request, "blogs/result.html", {'message':'success'})
     
 def newMemberForm(request):
-    return render(request, 'newMemberForm.html')
+    return render(request, 'blogs/newMemberForm.html')
 
 def addNewMember(request):
     username = request.POST['username']
@@ -37,10 +37,10 @@ def addNewMember(request):
             user = User(username=username,email=email,password=password)
             user.save()
             message = 'success'
-    return render(request, 'newMemberForm.html', {'message':message})  
+    return render(request, 'blogs/newMemberForm.html', {'message':message})  
 
 def loginForm(request):
-    return render(request, 'loginForm.html')
+    return render(request, 'blogs/loginForm.html')
 
 def login(request):
-    return render(request, 'result.html')
+    return render(request, 'blogs/result.html')
