@@ -1,5 +1,6 @@
 from django.shortcuts import render
-#from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def index(request):
@@ -8,16 +9,20 @@ def index(request):
         'admin' : False
     }
     if not obj['admin']:        
-        return render(request, 'rental/loginForm.html')
+        return HttpResponseRedirect('loginForm')
     else:
         return render(request, 'rental/index.html', obj)
+
+def loginForm(request):
+    return render(request, 'rental/loginForm.html')
 
 def login(request):
     if request.POST['username'] and request.POST['password']:
         return render(request, 'rental/index.html',{'username':request.POST['username']})
     else:
-        return render(request, 'rental/loginForm.html', {
-            'error_message': "please insert username and password"
-        })
+        
+        message = {'message': "please insert username and password"}
+        
+        return HttpResponseRedirect(reverse('rental:loginForm',args=(message,)))
 
     
